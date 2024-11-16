@@ -1,0 +1,84 @@
+// import React, { Component } from 'react'
+// import Newsitem from './Newsitem'
+// import Spinner from './Spinner';
+
+// export default class News extends Component {
+  
+//   constructor() {
+//     super();
+//     this.state = {
+//        news : [],
+//        loading: false,
+//        pageNo : 1
+//   }
+// }
+// async componentDidMount() {
+//   // let url = "https://newsapi.org/v2/everything?q=cricket&football&sortBy=publishedAt&apiKey=01765f60e7d04974a6762cf15188d97e";
+//   // let url ="https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=01765f60e7d04974a6762cf15188d97e"
+//   // let url ="https://newsapi.org/v2/everything?q=sports&sortBy=publishedAt&apiKey=01765f60e7d04974a6762cf15188d97e&page=1&pageSize=20";
+//   let url =`https://api.currentsapi.services/v1/latest-news?apiKey=DJZ_D93_ZAmY3qc2u78uefOhIABHuqGBxUJtJrtccC490hML&page=1&pageSize=${this.props.pageSize}`;
+//   this.setState({loading: true});
+//   let data = await fetch(url);
+//   let parsedData = await data.json()
+//   this.setState({news : parsedData.news ,
+//      totalresults : parsedData.totalResults,
+//     loading: false
+//     });
+//   console.log(this.props.pageSize);
+// }
+
+// handlePreviousclick = async() => {
+//   // let url =`https://newsapi.org/v2/everything?q=sports&sortBy=publishedAt&apiKey=01765f60e7d04974a6762cf15188d97e&page=${this.state.page - 1}&pageSize=20`;
+//   let url =`https://api.currentsapi.services/v1/latest-news?apiKey=DJZ_D93_ZAmY3qc2u78uefOhIABHuqGBxUJtJrtccC490hML&page=${this.state.pageNo - 1}&pageSize=${this.props.pageSize}`;
+//   this.setState({loading: true});
+//   let data = await fetch(url);
+//   let parsedData = await data.json()
+//   this.setState({
+//     pageNo : this.state.pageNo - 1,
+//     news : parsedData.news,
+//     loading: false
+//   });
+// }
+// handleNextclick = async() => {
+//   if(this.state.pageNo + 1 <= Math.ceil(this.state.totalresults/this.props.pageSize)){
+//  // let url =`https://newsapi.org/v2/everything?q=sports&sortBy=publishedAt&apiKey=01765f60e7d04974a6762cf15188d97e&page=${this.state.page + 1}&pageSize=20`;
+//   let url =`https://api.currentsapi.services/v1/latest-news?apiKey=DJZ_D93_ZAmY3qc2u78uefOhIABHuqGBxUJtJrtccC490hML&page=${this.state.pageNo + 1}&pageSize=${this.props.pageSize}`;
+//   this.setState({loading: true});
+//   let data = await fetch(url);
+//   let parsedData = await data.json()
+
+//   this.setState({
+//     pageNo : this.state.pageNo + 1,
+//     news : parsedData.news,
+//     loading: false
+//   });
+//   }else{
+ 
+// }
+// }
+//   render() {
+//     return (
+//       <div className="container my-3" >
+//         <h2>NewsMonkey - Top highlights</h2>
+//         {this.state.loading && <Spinner/>}
+//         <div className="row">
+//           {/* this.state.news && this.state.news.length > 0 && */}
+//         {!this.state.loading && this.state.news && this.state.news.length > 0 &&  this.state.news.map((element) => {
+//           return( <div className="col-md-4" key={element.url}>
+//              <Newsitem  title={element.title ? element.title.slice(0,45) : ''} description={element.description ? element.description.slice(0, 85) : ''} imgUrl={element.image} newsUrl={element.url} newsTime={element.published.slice(0,10)} />
+//           </div>);
+//         })}
+ 
+//         </div>
+//           <div className="container d-flex justify-content-between my-5">
+//           <button disabled={this.state.pageNo<=1}  type="button" className="btn btn-lg btn-dark" onClick={this.handlePreviousclick}>&#8617; Previous</button>
+
+//           <button disabled={this.state.pageNo + 1 >= Math.ceil(this.state.totalresults/this.props.pageSize)} type="button" className="btn btn-lg btn-dark" onClick={this.handleNextclick}>Next &#8618;</button>
+
+//           </div>
+//       </div>
+        
+      
+//     )
+//   }
+// }
